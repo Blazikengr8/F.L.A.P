@@ -15,12 +15,13 @@ Our software will automate the data science process and try to give the optimum 
 <h2 align= "left"><b>A Peek at our App</b></h2>
 
 <p align="left">
-<img width=20% src="App/ScreenshotsApp/ScreenshotApp1.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-<img width=20% src="App/ScreenshotsApp/ScreenshotApp3.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 
-<img width=20% src="App/ScreenshotsApp/ScreenshotApp2.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-<img width=20% src="App/ScreenshotsApp/ScreenshotApp4.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-<img width=20% src="App/ScreenshotsApp/ScreenshotApp5.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-<img width=20% src="App/ScreenshotsApp/ScreenshotApp6.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="Screenshots/Screenshot1.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="Screenshots/Screenshot2.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 
+<img width=20% src="Screenshots/Screenshot3.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="Screenshots/Screenshot4.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="Screenshots/Screenshot5.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="Screenshots/Screenshot6.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="Screenshots/Screenshot7.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 </p>
 
 <h2 align= "left"><b>Tech Stack Used</b></h2>
