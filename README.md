@@ -13,7 +13,7 @@ Fantasy Premier League is one of the most popular online fantasy games available
 Our software will automate the data science process and try to give the optimum squads for each week. This hopes to even the playing field and also gives the players a powerful engine to refer from for their own squads. Using flutter and python we will give results and also have extra features for the user to enjoy the app.
 
 <h2 align= "left"><b>A Peek at our App</b></h2>
-
+<h3 align= "left"><b>Light Mode</b></h3>
 <p align="left">
 <img width=20% src="Screenshots/Screenshot1.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 <img width=20% src="Screenshots/Screenshot2.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 
@@ -22,6 +22,16 @@ Our software will automate the data science process and try to give the optimum 
 <img width=20% src="Screenshots/Screenshot5.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 <img width=20% src="Screenshots/Screenshot6.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 <img width=20% src="Screenshots/Screenshot7.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+</p>
+<h3 align= "left"><b>Dark Mode</b></h3>
+<p align="left">
+<img width=20% src="Screenshots/Screenshot8.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="Screenshots/Screenshot9.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 
+<img width=20% src="Screenshots/Screenshot10.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="Screenshots/Screenshot11.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="Screenshots/Screenshot12.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="Screenshots/Screenshot13.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="Screenshots/Screenshot14.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 </p>
 
 <h2 align= "left"><b>Tech Stack Used</b></h2>
