@@ -1,9 +1,10 @@
+import 'package:flap/constant.dart';
 import 'package:flap/goals.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'globals.dart' as globals;
 class FPLUIDart extends StatefulWidget{
   @override
    createState()=>FPLUIDartState();
@@ -17,7 +18,8 @@ class FPLUIDartState extends State<FPLUIDart>{
     return Scaffold(
       backgroundColor: Colors.green,
       appBar: AppBar(
-        title: Text("Fantasy Team",style: plStyle.copyWith(color: Colors.white,fontSize: 25),),
+        backgroundColor: globals.isDark?darkcolor:lightcolor,
+        title: Text("Fantasy Team",style: globals.plStyle.copyWith(color: Colors.white,fontSize: 25),),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -117,7 +119,7 @@ class PlayerIcon extends StatelessWidget
              Column(
               children: [
                 Flexible(child: Icon(FontAwesomeIcons.tshirt,color:Color(teamcolor),size: 40,)),
-                Flexible(child: Text('$pname',style: plStyle.copyWith(fontSize: 20),textAlign: TextAlign.center,))
+                Flexible(child: Text('$pname',style: globals.plStyle.copyWith(fontSize: 20),textAlign: TextAlign.center,))
               ],
             ),
        ],

@@ -1,6 +1,8 @@
+import 'package:flap/constant.dart';
+import 'package:flap/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'globals.dart' as globals;
 class ImageRotate extends StatefulWidget {
   @override
   _ImageRotateState createState() => new _ImageRotateState();
@@ -15,7 +17,7 @@ class _ImageRotateState extends State<ImageRotate>
     super.initState();
     animationController = new AnimationController(
       vsync: this,
-      duration: new Duration(milliseconds: 500),
+      duration: new Duration(milliseconds: 1000),
     );
 
     animationController.repeat();
@@ -30,17 +32,16 @@ class _ImageRotateState extends State<ImageRotate>
   Widget build(BuildContext context) {
     return new Container(
       alignment: Alignment.center,
-      color: Color(0xFFf5f100),
+      color: globals.isDark?darkcolor:lightbackground,
       child: new AnimatedBuilder(
         animation: animationController,
-        child: new Container(
-          height: 150.0,
-          width: 150.0,
-          child: new Image.asset('assets/logo.png'),
+        child: new CircleAvatar(
+          radius: 50,
+          child: globals.isDark?Image.asset('assets/logodark.png'):Image.asset('assets/logo.png'),
         ),
         builder: (BuildContext context, Widget _widget) {
-          return new Transform.rotate(
-            angle: animationController.value * 6.3,
+          return new Transform.scale(
+            scale: animationController.value*1.5,
             child: _widget,
           );
         },

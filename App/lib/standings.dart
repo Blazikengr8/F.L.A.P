@@ -1,11 +1,13 @@
 import 'dart:convert';
 
+import 'package:flap/constant.dart';
+import 'package:flap/main.dart';
 import 'package:flap/splash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
-
+import 'globals.dart' as globals;
 class Standings extends StatefulWidget{
 
   @override
@@ -22,6 +24,7 @@ class StandingsState extends State<Standings> {
     final Size size = MediaQuery.of(context).size;
     // TODO: implement build
     return Scaffold(
+      backgroundColor: globals.isDark?Colors.black:Colors.white,
       body: FutureBuilder(
         future: getLeagueStandings(),
         builder: (context, snapshot){
@@ -70,7 +73,7 @@ class StandingsState extends State<Standings> {
     );
   }
   }
-  Color pos=Colors.white;
+  Color pos=globals.isDark?darkbackground:Colors.white;
   Widget rankingRow(
     int p , String t , String pts, String mp , String w , String d, String l ) {
     if(p==1)
@@ -88,20 +91,20 @@ class StandingsState extends State<Standings> {
     else if(p==20)
       pos=Colors.redAccent.withOpacity(0.4);
     else
-      pos=Colors.white;
+      pos=globals.isDark?darkbackground:Colors.white;
   return Container(
     height: 100,
     child: Card(
-      color: pos,
+      color: globals.isDark?pos:pos,
       child: Row(
         children: <Widget>[
-          Expanded(child: Center(child: Text('$p', style: plStyle),), flex: 1,),
-          Expanded(child: Text(t, style: plStyle), flex: 2,),
-          Expanded(child: Text(mp, style: plStyle), flex: 1,),
-          Expanded(child: Text(w, style: plStyle), flex: 1,),
-          Expanded(child: Text(d, style: plStyle), flex: 1,),
-          Expanded(child: Text(l, style: plStyle), flex: 1,),
-          Expanded(child: Text(pts, style: plStyle), flex: 1,)
+          Expanded(child: Center(child: Text('$p', style: globals.plStyle),), flex: 1,),
+          Expanded(child: Text(t, style: globals.plStyle), flex: 2,),
+          Expanded(child: Text(mp, style: globals.plStyle), flex: 1,),
+          Expanded(child: Text(w, style: globals.plStyle), flex: 1,),
+          Expanded(child: Text(d, style: globals.plStyle), flex: 1,),
+          Expanded(child: Text(l, style: globals.plStyle), flex: 1,),
+          Expanded(child: Text(pts, style: globals.plStyle), flex: 1,)
         ],
 
       ),
@@ -112,19 +115,18 @@ Widget rankingRow1() {
   return Container(
       child: Row(
         children: <Widget>[
-          Expanded(child: Center(child: Text('Pos', style: plStyle),), flex: 1,),
-          Expanded(child:  Text('Team', style: plStyle), flex: 2,),
-          Expanded(child: Text('MP', style: plStyle), flex: 1,),
-          Expanded(child: Text('W', style: plStyle), flex: 1,),
-          Expanded(child: Text('D', style: plStyle), flex: 1,),
-          Expanded(child: Text('L', style: plStyle), flex: 1,),
-          Expanded(child: Text('Pts', style: plStyle), flex: 1,)
+          Expanded(child: Center(child: Text('Pos', style: globals.plStyle),), flex: 1,),
+          Expanded(child:  Text('Team', style: globals.plStyle), flex: 2,),
+          Expanded(child: Text('MP', style: globals.plStyle), flex: 1,),
+          Expanded(child: Text('W', style: globals.plStyle), flex: 1,),
+          Expanded(child: Text('D', style: globals.plStyle), flex: 1,),
+          Expanded(child: Text('L', style: globals.plStyle), flex: 1,),
+          Expanded(child: Text('Pts', style: globals.plStyle), flex: 1,)
         ],
 
       ),
   );
 }
-final plStyle=GoogleFonts.getFont('Didact Gothic',fontSize: 16,fontWeight: FontWeight.w600);
 class teamPos{
   int pos;
   Map<String, dynamic> teamInfo;

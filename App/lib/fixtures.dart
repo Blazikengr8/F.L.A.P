@@ -1,3 +1,5 @@
+import 'package:flap/constant.dart';
+import 'package:flap/main.dart';
 import 'package:flap/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -5,7 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
 import 'dart:async';
 import 'dart:convert';
-
+import 'globals.dart' as globals;
+import 'globals.dart';
 final String token = '7abba3fc968d4e1fb66a1b54c916d717';
 
 class match {
@@ -26,78 +29,86 @@ class FixtureState extends State<Fixtures> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Color.fromRGBO(55, 0, 60, 1),
-        child: FutureBuilder(
-          future: getMatches(),
-          builder: (context, snapshot) {
-            if (snapshot.data == null) {
-              return Center(
-                child: ImageRotate(),
-              );
-            } else {
-              return Center(
-                child: Container(
-                  child: ListView.builder(
-                      itemCount: 8,
-                      physics: BouncingScrollPhysics(),
-                      itemBuilder: (context, i) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Card(
-                            child: Container(
-                              height: 100,
-                              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(5)),
-                              child:  Row(
-                                  children: <Widget>[
-                                    //first part of match details
-                                    Expanded(
-                                      flex: 3 ,
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        //crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                           Text(snapshot.data[i].homeTeam,
-                                                    style: teamStyle),
-                                          Text('VS',
-                                              style: teamStyle),
-                                          Text(snapshot.data[i].awayTeam,
-                                                    style: teamStyle),
-                                        ],
-                                      ),
-                                    ),
+    final Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      backgroundColor: globals.isDark?Colors.black:lightcolor,
+      body:
+           FutureBuilder(
+            future: getMatches(),
+            builder: (context, snapshot) {
+              if (snapshot.data == null) {
+                return Center(
+                  child: ImageRotate(),
+                );
+              } else {
+                return Container(
+                  height: size.height-200,
+                  width: size.width,
+                  child: Center(
+                    child: Container(
+                      child: ListView.builder(
+                          itemCount: 8,
+                          physics: BouncingScrollPhysics(),
+                          itemBuilder: (context, i) {
+                            return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Card(
+                                color: globals.isDark?darkbackground:Colors.white,
+                                child: Container(
+                                  height: 100,
+                                  padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                                  decoration: BoxDecoration(
+                                      color: globals.isDark?darkbackground:Colors.white,
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child:  Row(
+                                      children: <Widget>[
+                                        //first part of match details
+                                        Expanded(
+                                          flex: 3 ,
+                                          child: Column(
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            //crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                               Text(snapshot.data[i].homeTeam,
+                                                        style: teamStyle),
+                                              Text('VS',
+                                                  style: teamStyle),
+                                              Text(snapshot.data[i].awayTeam,
+                                                        style: teamStyle),
+                                            ],
+                                          ),
+                                        ),
 
-                                    //second part of match details
-                                    Expanded(
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: <Widget>[
-                                            FittedBox(
-                                                child: timeFormatter(snapshot.data[i]),
-                                                fit: BoxFit.fitWidth
-                                            ),
-                                            FittedBox(
-                                                child: dayFormatter(snapshot.data[i]),
-                                                fit: BoxFit.fitWidth
-                                            ),
-                                          ],
+                                        //second part of match details
+                                        Expanded(
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: <Widget>[
+                                                FittedBox(
+                                                    child: timeFormatter(snapshot.data[i]),
+                                                    fit: BoxFit.fitWidth
+                                                ),
+                                                FittedBox(
+                                                    child: dayFormatter(snapshot.data[i]),
+                                                    fit: BoxFit.fitWidth
+                                                ),
+                                              ],
+                                            )
                                         )
-                                    )
-                                  ],
+                                      ],
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                        );
-                      }),
-                ),
-              );
-            }
-          },
-        ));
+                            );
+                          }),
+                    ),
+                  ),
+                );
+              }
+            },
+          )
+    );
   }
 }
 
@@ -127,7 +138,7 @@ Future<List<match>> getMatches() async {
   return extractedMatches;
 }
 
-TextStyle teamStyle =GoogleFonts.getFont('Didact Gothic',fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold);
+
 
 
 timeFormatter(match m) {

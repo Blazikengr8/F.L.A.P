@@ -1,8 +1,10 @@
+import 'package:flap/constant.dart';
 import 'package:flap/goals.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-
+import 'package:google_fonts/google_fonts.dart';
+import 'globals.dart' as globals;
 class DescriptionPage extends StatelessWidget {
   static String tag = 'description-page';
   DescriptionPage(this.urlnews);
@@ -10,12 +12,18 @@ class DescriptionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
+        leading: IconButton(
+          icon:Icon(Icons.arrow_back),
+          onPressed: (){
+            Navigator.pop(context);
+          },
+        ),
+        backgroundColor: globals.isDark?darkcolor:lightcolor,
         title: new Text(
           "Full Article",
-          style: plStyle.copyWith(fontSize: 25),
+          style: GoogleFonts.getFont('Didact Gothic',color:Colors.white ,fontWeight: FontWeight.bold,fontSize: 26),
         ),
         iconTheme: IconThemeData(color: CupertinoColors.white),
-        backgroundColor: Color.fromRGBO(55, 0, 60, 1),
       ),
       body: Container(
         color: Colors.white,

@@ -1,3 +1,4 @@
+import 'package:flap/constant.dart';
 import 'package:flap/fixtures.dart';
 import 'package:flap/fpl_team_ui.dart';
 import 'package:flap/standings.dart';
@@ -5,7 +6,7 @@ import 'package:flap/goals.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'globals.dart' as globals;
 import 'news.dart';
 
 void main() {
@@ -13,13 +14,14 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'F.L.A.P',
-      theme: ThemeData().copyWith(primaryColor: Color.fromRGBO(55, 0, 60, 1) ),
+      theme: ThemeData(),
       home: HomePage(),
     );
   }
@@ -58,12 +60,50 @@ class _HomePageState extends State<HomePage> {
       Players(),
     ];
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(70.0),
         child:AppBar(
+          backgroundColor: globals.isDark?darkcolor:lightcolor,
           elevation: 5,
           title: currentTitle==null?Text('News',style: GoogleFonts.getFont('Didact Gothic',color:Colors.white ,fontWeight: FontWeight.bold,fontSize: 26),):Text('$currentTitle',style: GoogleFonts.getFont('Didact Gothic',color:Colors.white ,fontWeight: FontWeight.bold,fontSize: 26),),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
+                icon: globals.isDark?Icon(
+                  FontAwesomeIcons.moon,
+                  color:Colors.white,
+                  size: 25,
+                ):Icon(
+                  Icons.wb_sunny,
+                  color:Colors.white,
+                  size: 30,
+                ),
+                onPressed: (){
+                  setState(() {
+                    if(globals.isDark) {
+                      globals.isDark=false;
+                      globals.plStyle =
+                          globals.plStyle.copyWith(color: Colors.black);
+                      globals.teamStyle =
+                          globals.plStyle.copyWith(color: Colors.black);
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>MyApp()));
+                    }
+                    else
+                      {
+                        globals.isDark=true;
+
+                        globals.plStyle =
+                            globals.plStyle.copyWith(color: Colors.white);
+                        globals.teamStyle =
+                            globals.plStyle.copyWith(color: Colors.white);
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>MyApp()));
+                      }
+                  });
+                },
+              ),
+            ),
+          ],
       ),
       ),
       body: Stack(
@@ -88,10 +128,10 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Center(
                         heightFactor: 0.6,
-                        child: FloatingActionButton( backgroundColor:Color(0xFFf5f100),child: Image.asset('assets/logo.png',fit: BoxFit.fill,), elevation: 1, onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>FPLUIDart()));}),
+                        child: FloatingActionButton( backgroundColor:globals.isDark?darkcolor:lightbackground,child: CircleAvatar(child: globals.isDark?Image.asset('assets/logodark.png',fit: BoxFit.fill,):Image.asset('assets/logo.png',fit: BoxFit.fill,)), elevation: 1, onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>FPLUIDart()));}),
                       ),
                       SizedBox(height: 26,),
-                      Text('Fantasy Team',style: GoogleFonts.getFont('Didact Gothic',color:Color(0xFFf5f100) ,fontWeight: FontWeight.bold,fontSize: 14),),
+                      Text('Fantasy Team',style: GoogleFonts.getFont('Didact Gothic',color:globals.isDark?darkbackground:lightbackground ,fontWeight: FontWeight.bold,fontSize: 14),),
                     ],
                   ),
                   Container(
@@ -106,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                             IconButton(
                               icon: Icon(
                                 FontAwesomeIcons.newspaper,
-                                color: currentIndex == 0 ? Color(0xFFf5f100) : Colors.white,
+                                color: currentIndex == 0 ? (globals.isDark?darkbackground:lightbackground) : Colors.white,
                                 size: 25,
                               ),
                               onPressed: () {
@@ -114,7 +154,7 @@ class _HomePageState extends State<HomePage> {
                               },
                               splashColor: Colors.white,
                             ),
-                            Text('News',style: GoogleFonts.getFont('Didact Gothic',color: currentIndex == 0 ? Color(0xFFf5f100) : Colors.white,fontWeight: FontWeight.bold),),
+                            Text('News',style: GoogleFonts.getFont('Didact Gothic',color: currentIndex == 0 ? (globals.isDark?darkbackground:lightbackground) : Colors.white,fontWeight: FontWeight.bold),),
                           ],
                         ),
                         Column(
@@ -123,13 +163,13 @@ class _HomePageState extends State<HomePage> {
                             IconButton(
                                 icon: Icon(
                                   FontAwesomeIcons.table,
-                                  color: currentIndex == 1 ? Color(0xFFf5f100): Colors.white,
+                                  color: currentIndex == 1 ?  (globals.isDark?darkbackground:lightbackground) : Colors.white,
                                   size: 25,
                                 ),
                                 onPressed: () {
                                   setBottomBarIndex(1);
                                 }),
-                            Text('Standings',style: GoogleFonts.getFont('Didact Gothic',color: currentIndex == 1 ? Color(0xFFf5f100) : Colors.white,fontWeight: FontWeight.bold),),
+                            Text('Standings',style: GoogleFonts.getFont('Didact Gothic',color: currentIndex == 1 ? (globals.isDark?darkbackground:lightbackground) : Colors.white,fontWeight: FontWeight.bold),),
                           ],
                         ),
                         Container(
@@ -141,13 +181,13 @@ class _HomePageState extends State<HomePage> {
                             IconButton(
                                 icon: Icon(
                                   FontAwesomeIcons.solidFutbol,
-                                  color: currentIndex == 2 ? Color(0xFFf5f100) : Colors.white,
+                                  color: currentIndex == 2 ? (globals.isDark?darkbackground:lightbackground) : Colors.white,
                                   size: 25,
                                 ),
                                 onPressed: () {
                                   setBottomBarIndex(2);
                                 }),
-                            Text('Fixtures',style: GoogleFonts.getFont('Didact Gothic',color: currentIndex == 2 ? Color(0xFFf5f100) : Colors.white,fontWeight: FontWeight.bold),),
+                            Text('Fixtures',style: GoogleFonts.getFont('Didact Gothic',color: currentIndex == 2 ? (globals.isDark?darkbackground:lightbackground) : Colors.white,fontWeight: FontWeight.bold),),
                           ],
                         ),
                         Column(
@@ -156,13 +196,13 @@ class _HomePageState extends State<HomePage> {
                             IconButton(
                                 icon: Icon(
                                    FontAwesomeIcons.tshirt,
-                                  color: currentIndex == 3 ? Color(0xFFf5f100) : Colors.white,
+                                  color: currentIndex == 3 ?(globals.isDark?darkbackground:lightbackground) : Colors.white,
                                   size: 25,
                                 ),
                                 onPressed: () {
                                   setBottomBarIndex(3);
                                 }),
-                            Text('Scorers',style: GoogleFonts.getFont('Didact Gothic',color: currentIndex == 3 ? Color(0xFFf5f100) : Colors.white,fontWeight: FontWeight.bold),),
+                            Text('Scorers',style: GoogleFonts.getFont('Didact Gothic',color: currentIndex == 3 ? (globals.isDark?darkbackground:lightbackground) : Colors.white,fontWeight: FontWeight.bold),),
                           ],
                         ),
                       ],
@@ -185,7 +225,7 @@ class BNBCustomPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = new Paint()
-      ..color = Color.fromRGBO(55, 0, 60, 1)
+      ..color = globals.isDark?darkcolor:lightcolor
       ..style = PaintingStyle.fill;
 
     Path path = Path();
