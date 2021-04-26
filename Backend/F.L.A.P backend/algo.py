@@ -106,7 +106,7 @@ model = sm.OLS(x, y).fit()
 # Creating model with only players who played 90 minutes
 
 only_90 = cleaned.drop(cleaned[cleaned.minutes != 90].index)
-print(only_90.columns)
+# print(only_90.columns)
 x = only_90[['log_points']].astype('float64')
 y = only_90[['value', 'is_home', 'diff_diff', 'total_points']].astype('float64')
 y['team_short'] = only_90['team_short']
@@ -136,10 +136,10 @@ print(df.sort_values('predicted', ascending=False))
 # x_sorted_top = x_sorted.head(20)
 
 
-time.sleep(10)
-print(cleaned.loc[186])
+# time.sleep(10)
 # print(cleaned.loc[186])
-# print(cleaned.loc[526])
+print(cleaned.loc[186])
+print(cleaned.loc[526])
 # print(cleaned.loc[1493])
 # print(cleaned.loc[2896])
 # print(cleaned.loc[88])
