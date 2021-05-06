@@ -1,4 +1,5 @@
 import 'package:flap/constant.dart';
+import 'package:flap/drawer.dart';
 import 'package:flap/fixtures.dart';
 import 'package:flap/fpl_team_ui.dart';
 import 'package:flap/standings.dart';
@@ -215,7 +216,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       drawer: Drawer(
-
+        child: DrawerPage(),
       ),
     );
   }

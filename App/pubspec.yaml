@@ -26,6 +26,7 @@ dependencies:
   google_fonts: ^1.1.2
   http: any
   flutter_svg: any
+  url_launcher:
   cached_network_image: ^2.5.1
   flutter:
     sdk: flutter
