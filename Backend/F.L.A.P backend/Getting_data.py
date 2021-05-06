@@ -70,9 +70,24 @@ def_df = slim_elements_df.loc[slim_elements_df.element_type == 2]
 att_df = slim_elements_df.loc[slim_elements_df.element_type == 4]
 
 gk_df = sorting(gk_df)
+# print(gk_df)
 def_df = sorting(def_df)
 mid_df = sorting(mid_df)
 att_df = sorting(att_df)
+
+final_df = gk_df.head(2)
+final_df = final_df.append(def_df.head(5))
+final_df = final_df.append(mid_df.head(5))
+final_df = final_df.append(att_df.head(3))
+print(final_df)
+
+
+
+#
+# print(gk_df)
+# print(def_df)
+# print(mid_df)
+# print((att_df))
 
 # print(gk_df.to_json())
 
