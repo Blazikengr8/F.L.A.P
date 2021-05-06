@@ -50,6 +50,12 @@ flutter:
     - assets/pitch.jpg
     - assets/liverpool.png
     - assets/logodark.png
+    - assets/jersey.png
+    - assets/gk.png
+    - assets/keeper.jpg
+    - assets/striker.png
+    - assets/defender.jpg
+    - assets/mid.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
