@@ -23,6 +23,7 @@ Our software will automate the data science process and try to give the optimum 
 <img width=20% src="Screenshots/Screenshot5.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 <img width=20% src="Screenshots/Screenshot6.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 <img width=20% src="Screenshots/Screenshot7.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="Screenshots/Screenshot15.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;  
 </p>
 <h3 align= "left"><b>Dark Mode</b></h3>
 <p align="left">
@@ -33,6 +34,7 @@ Our software will automate the data science process and try to give the optimum 
 <img width=20% src="Screenshots/Screenshot12.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 <img width=20% src="Screenshots/Screenshot13.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 <img width=20% src="Screenshots/Screenshot14.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="Screenshots/Screenshot16.jpeg"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;  
 </p>
 
 <h2 align= "left"><b>Tech Stack Used</b></h2>
