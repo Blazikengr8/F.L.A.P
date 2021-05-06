@@ -47,7 +47,7 @@ class PlayerInfoState extends State<PlayerInfo> {
   PlayerInfoState(this.name,this.form,this.element,this.code,this.ppg,this.tin,this.selectpercent,this.tout,this.goals,this.saves,this.assists,this.cleansheet,this.ict,this.pos);
   @override
   Widget build(BuildContext context) {
-    print(pos);
+    print(pos+'0');
     if(pos=='GK')
       {
         image=Image.asset('assets/keeper.jpg',);
