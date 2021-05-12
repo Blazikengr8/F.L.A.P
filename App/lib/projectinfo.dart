@@ -22,7 +22,7 @@ class ProjectInfo extends StatelessWidget
            SizedBox(height: 10,),
            Container(
              color: globals.isDark?darkbackground:lightbackground,
-             height: 200,
+             height: 300,
              padding: EdgeInsets.all(10),
              child: Text('Fantasy Premier League is one of the most popular online fantasy games available.Our software will automate the data science process and try to give the optimum squads for each week.'
                  'This hopes to even the playing field and also gives the players a powerful engine to refer from for their own squads. Using flutter and python we will give results and also have extra features for the user to enjoy the app. ',
