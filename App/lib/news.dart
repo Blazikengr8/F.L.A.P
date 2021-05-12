@@ -75,7 +75,7 @@ class News {
   String url;
   String imgurl;
 
-  News({this.auther, this.title, this.description, this.url, this.
+  News({this.auther,  this.title, this.description, this.url, this.
   imgurl, image});
 
   factory News.fromJson(Map<String, dynamic> json) {
