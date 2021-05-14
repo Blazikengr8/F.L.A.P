@@ -99,7 +99,7 @@ class PlayerInfoState extends State<PlayerInfo> {
                Row(
                  children: [
                    Expanded(flex:1,child: Padding(padding:EdgeInsets.fromLTRB(30, 0,0,0),child: Text('Form: $form',style: globals.plStyle.copyWith(fontSize: 20),))),
-                   Expanded(flex:1,child: Text('Team Code: $code',style: globals.plStyle.copyWith(fontSize: 20),)),
+                   Expanded(flex:1,child: Text('Team Name: $code',style: globals.plStyle.copyWith(fontSize: 20),)),
                  ],
                ),
                SizedBox(

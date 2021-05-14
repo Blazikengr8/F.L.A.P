@@ -179,7 +179,7 @@ Future<List<Player>> getLeagueStandings() async{
       {
         pos='ATT';
       }
-      k.add(new Player(x['second_name'][i.toString()], x['form'][i.toString()],x['element_type'][i.toString()],x['team_code'][i.toString()],x['points_per_game'][i.toString()],x['transfers_in'][i.toString()],x['selected_by_percent'][i.toString()],x['transfers_out'][i.toString()],x['goals_scored'][i.toString()],x['saves'][i.toString()],x['assists'][i.toString()],x['clean_sheets'][i.toString()],x['ict_index'][i.toString()],pos));
+      k.add(new Player(x['first_name'][i.toString()]+" "+x['second_name'][i.toString()], x['form'][i.toString()],x['element_type'][i.toString()],x['team_name'][i.toString()],x['points_per_game'][i.toString()],x['transfers_in'][i.toString()],x['selected_by_percent'][i.toString()],x['transfers_out'][i.toString()],x['goals_scored'][i.toString()],x['saves'][i.toString()],x['assists'][i.toString()],x['clean_sheets'][i.toString()],x['ict_index'][i.toString()],pos));
     }
   return k;
 }
