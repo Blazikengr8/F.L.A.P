@@ -41,41 +41,48 @@ class FixtureState extends State<Fixtures> {
                   child: ImageRotate(),
                 );
               } else {
-                return Container(
-                  height: size.height-200,
-                  width: size.width,
-                  child: Center(
-                    child: Container(
-                      child: ListView.builder(
-                          itemCount: 8,
-                          physics: BouncingScrollPhysics(),
-                          itemBuilder: (context, i) {
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Card(
-                                color: globals.isDark?darkbackground:Colors.white,
-                                child: Container(
-                                  height: 100,
-                                  padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-                                  decoration: BoxDecoration(
-                                      color: globals.isDark?darkbackground:Colors.white,
-                                      borderRadius: BorderRadius.circular(5)),
-                                  child:  Row(
+                if(snapshot.data[0].homeTeam!='Hello') {
+                  return Container(
+                    height: size.height - 200,
+                    width: size.width,
+                    child: Center(
+                      child: Container(
+                        child: ListView.builder(
+                            itemCount: 8,
+                            physics: BouncingScrollPhysics(),
+                            itemBuilder: (context, i) {
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Card(
+                                  color: globals.isDark
+                                      ? darkbackground
+                                      : Colors.white,
+                                  child: Container(
+                                    height: 100,
+                                    padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                                    decoration: BoxDecoration(
+                                        color: globals.isDark
+                                            ? darkbackground
+                                            : Colors.white,
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Row(
                                       children: <Widget>[
                                         //first part of match details
                                         Expanded(
-                                          flex: 3 ,
+                                          flex: 3,
                                           child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment
+                                                .center,
+                                            crossAxisAlignment: CrossAxisAlignment
+                                                .center,
                                             //crossAxisAlignment: CrossAxisAlignment.start,
                                             children: <Widget>[
-                                               Text(snapshot.data[i].homeTeam,
-                                                        style: teamStyle),
+                                              Text(snapshot.data[i].homeTeam,
+                                                  style: teamStyle),
                                               Text('VS',
                                                   style: teamStyle),
                                               Text(snapshot.data[i].awayTeam,
-                                                        style: teamStyle),
+                                                  style: teamStyle),
                                             ],
                                           ),
                                         ),
@@ -83,14 +90,17 @@ class FixtureState extends State<Fixtures> {
                                         //second part of match details
                                         Expanded(
                                             child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment
+                                                  .center,
                                               children: <Widget>[
                                                 FittedBox(
-                                                    child: timeFormatter(snapshot.data[i]),
+                                                    child: timeFormatter(
+                                                        snapshot.data[i]),
                                                     fit: BoxFit.fitWidth
                                                 ),
                                                 FittedBox(
-                                                    child: dayFormatter(snapshot.data[i]),
+                                                    child: dayFormatter(
+                                                        snapshot.data[i]),
                                                     fit: BoxFit.fitWidth
                                                 ),
                                               ],
@@ -100,11 +110,20 @@ class FixtureState extends State<Fixtures> {
                                     ),
                                   ),
                                 ),
-                            );
-                          }),
+                              );
+                            }),
+                      ),
                     ),
-                  ),
-                );
+                  );
+                }
+                else
+                  {
+                    return Center(
+                      child: Container(
+                        child: Text('No more matches this season.Come back next year!',style: globals.plStyle.copyWith(color: Colors.white),),
+                      ),
+                    );
+                  }
               }
             },
           )
@@ -134,8 +153,14 @@ Future<List<match>> getMatches() async {
             .toIso8601String()
             .substring(11, 16)));
   }
-
+  if(extractedMatches.isNotEmpty)
   return extractedMatches;
+  else
+    {
+      extractedMatches.add(match('Hello', 'Hello', 'Hello', 'Hello'));
+      print(extractedMatches.length);
+      return extractedMatches;
+    }
 }
 
 
